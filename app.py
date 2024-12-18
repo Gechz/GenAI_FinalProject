@@ -26,7 +26,7 @@ def init_azure_client():
 def main():
     # Logo
     st.title("Molugayou")
-    st.image("Molugayou_logo.jpg", use_column_width=True)
+    st.image("Molugayou_logo.jpg", use_container_width=True)
     st.write("Interact with the GPT-4o model deployed on Azure OpenAI.")
 
     # Description Tab
