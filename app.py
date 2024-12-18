@@ -112,7 +112,6 @@ def main():
                         },
                         {"role": "user", "content": user_input}
                     ],
-                    past_messages=10,
                     max_tokens=800,
                     temperature=0.05,
                     top_p=0.95,
