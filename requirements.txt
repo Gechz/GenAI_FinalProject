@@ -1,0 +1,3 @@
+streamlit>=1.15.0  # For the Streamlit app interface
+openai>=0.27.6     # For interacting with Azure OpenAI API
+azure-identity>=1.13.0  # For Azure Active Directory authentication
