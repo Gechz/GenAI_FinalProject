@@ -12,7 +12,7 @@ def init_azure_client():
     # Initialize Azure OpenAI client with API key
     client = AzureOpenAI(
         azure_endpoint=endpoint,
-        azure_api_key=api_key,  # Pass the API key here
+        api_key=api_key,  # Pass the API key here
         api_version='2024-05-01-preview',
     )
     return client, deployment
