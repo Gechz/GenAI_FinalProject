@@ -82,13 +82,14 @@ def main():
     user_input = ""
     if generation_type == "Text":
         user_input = f"Inspired from the {inspiration} game or series, generate the {text_content_type.lower()} for a {game_style.lower()} video game. "
+        if additional_comments.strip():
+            user_input += f"Additionally, {additional_comments.strip()}"
     elif generation_type == "Code":
         user_input = f"The CODE generation feature hasn't been implemented. Please run the Text feature and use another LLM. "
     elif generation_type == "Image":
         user_input = f"The IMAGE generation feature hasn't been implemented. Please run the Text feature and ask for a prompt to generate an image from it. "
 
-    if additional_comments.strip():
-        user_input += f"Additionally, {additional_comments.strip()}"
+
 
     # Display Compiled Input
     st.subheader("Compiled Input for the Model")
