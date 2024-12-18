@@ -124,12 +124,14 @@ def main():
                                 "parameters": {
                                     "endpoint": st.secrets["azure"]["AZURE_AI_SEARCH_ENDPOINT"],
                                     "index_name": st.secrets["azure"]["AZURE_AI_SEARCH_INDEX"],
-                                    "api_key": st.secrets["api_keys"]["azure_openai_api_key"]  # Place API key at this level
+                                    "authentication": {
+                                        "type": "api_key",
+                                        "key": st.secrets["api_keys"]["api_key"]
+                                    }
                                 }
                             }
                         ]
                     }
-
                 )
                 
                 # Display the response
