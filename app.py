@@ -5,21 +5,16 @@ from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
 # Initialize Azure OpenAI Client
 def init_azure_client():
-    endpoint = os.getenv("ENDPOINT_URL", "https://gabri-m4ionpc4-swedencentral.openai.azure.com/")
-    deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4o")
-    cognitive_services_resource = os.getenv('AZURE_COGNITIVE_SERVICES_RESOURCE', 'YOUR_COGNITIVE_SERVICES_RESOURCE')
-    
-    token_provider = get_bearer_token_provider(
-        DefaultAzureCredential(),
-        f'{cognitive_services_resource}.default'
-    )
-    
+    endpoint = st.secrets['azure']['endpoint_url']
+    deployment = st.secrets['azure']['deployment_name']
+    api_key = st.secrets['api_keys']['azure_openai_api_key']  # Retrieve the API key
+
+    # Initialize Azure OpenAI client with API key
     client = AzureOpenAI(
         azure_endpoint=endpoint,
-        azure_ad_token_provider=token_provider,
+        azure_api_key=api_key,  # Pass the API key here
         api_version='2024-05-01-preview',
     )
-    
     return client, deployment
 
 # Define the Streamlit app
@@ -128,9 +123,11 @@ def main():
                             {
                                 "type": "azure_search",
                                 "parameters": {
-                                    "endpoint": os.environ["AZURE_AI_SEARCH_ENDPOINT"],
-                                    "index_name": os.environ["AZURE_AI_SEARCH_INDEX"],
+                                    "endpoint": st.secrets["azure"].get("AZURE_AI_SEARCH_ENDPOINT", os.getenv("AZURE_AI_SEARCH_ENDPOINT")),
+                                    "index_name": st.secrets["azure"].get("AZURE_AI_SEARCH_INDEX", os.getenv("AZURE_AI_SEARCH_INDEX")),
                                     "authentication": {"type": "azure_ad"}
+                                }
+
                                 }
                             }
                         ]
