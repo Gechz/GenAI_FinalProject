@@ -126,7 +126,7 @@ def main():
                                     "index_name": st.secrets["azure"]["AZURE_AI_SEARCH_INDEX"],
                                    "authentication": {
                                        "type": "api_key",
-                                       "api_key": st.secrets["apie_keys"]["azure_openai_api_key"]
+                                       "api_key": st.secrets["api_keys"]["azure_openai_api_key"]
                                    }
                                 }
                                 }
