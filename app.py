@@ -7,7 +7,7 @@ from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 def init_azure_client():
     endpoint = st.secrets['azure']['endpoint_url']
     deployment = st.secrets['azure']['deployment_name']
-    api_key = st.secrets['api_keys']['azure_openai_api_key']  # Retrieve the API key
+    api_key = st.secrets['api_keys']['api_key']  # Retrieve the API key
 
     # Initialize Azure OpenAI client with API key
     client = AzureOpenAI(
