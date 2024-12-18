@@ -122,7 +122,7 @@ def main():
                             {
                                 "type": "azure_search",
                                 "parameters": {
-                                    "endpoint": st.secrets["azure"]["AZURE_AI_SEARCH_ENDPOINT"],
+                                    "endpoint": st.secrets["azure"]["endpoint_url"],
                                     "index_name": st.secrets["azure"]["AZURE_AI_SEARCH_INDEX"],
                                     "authentication": {
                                         "type": "api_key",
