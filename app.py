@@ -127,9 +127,7 @@ def main():
                                     "index_name": st.secrets["azure"].get("AZURE_AI_SEARCH_INDEX", os.getenv("AZURE_AI_SEARCH_INDEX")),
                                     "authentication": {"type": "azure_ad"}
                                 }
-
                                 }
-                            }
                         ]
                     }
                 )
