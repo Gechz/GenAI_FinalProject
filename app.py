@@ -92,7 +92,7 @@ def main():
 
     # Display Compiled Input
     st.subheader("Compiled Input for the Model")
-    #st.write(user_input)
+    st.write(user_input)
 
     # If the connection to Azure API is fixed...
     # Check if the query is submitted
