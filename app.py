@@ -26,18 +26,18 @@ def main():
 
     # Description Tab
     st.subheader("Description")
-    st.text("This is a placeholder description. Modify this text later with relevant details about the app.")
+    st.text("Get ready to prepare the query to launch the design of your game!.")
 
  # Options: Text, Code, or Image
     st.subheader("Select what you want to generate:")
     generation_type = st.selectbox("What do you want to generate?", ["Text", "Code", "Image"])
 
     # Game Style Options
-    st.subheader("Select the game style:")
-    game_style = st.selectbox(
-        "What type of game are you looking to generate for?",
-        ["JRPG", "RPG", "First-Person Shooter", "Platformer", "Action-Adventure"]
-    )
+    #st.subheader("Select the game style:")
+    #game_style = st.selectbox(
+    #    "What type of game are you looking to generate for?",
+    #    ["JRPG", "RPG", "First-Person Shooter", "Platformer", "Action-Adventure"]
+    #)
 
     # Additional Options Based on Generation Type
     if generation_type == "Text":
@@ -81,9 +81,9 @@ def main():
     # Compile User Input
     user_input = ""
     if generation_type == "Text":
-        user_input = f"Inspired from the {inspiration} game or series, generate the {text_content_type.lower()} for a {game_style.lower()} video game. "
+        user_input = f"Inspired from the {inspiration} game or series, generate the {text_content_type.lower()} for a video game. "
         if additional_comments.strip():
-            user_input += f"Additionally, {additional_comments.strip()}"
+            user_input += f"Additionally: {additional_comments.strip()}"
     elif generation_type == "Code":
         user_input = f"The CODE generation feature hasn't been implemented. Please run the Text feature and use another LLM. "
     elif generation_type == "Image":
@@ -93,7 +93,8 @@ def main():
 
     # Display Compiled Input
     st.subheader("Compiled Input for the Model")
-    st.write(user_input)
+    if st.button("Generate Query"):
+        st.write(user_input)
 
     # If the connection to Azure API is fixed...
     # Check if the query is submitted
@@ -142,7 +143,7 @@ def main():
 
             #except Exception as e:
              #   st.error(f"An error occurred: {e}")
-        #else:
+        # else:
          #   st.warning("Please enter a query to generate a response.")
 
 
