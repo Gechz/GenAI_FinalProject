@@ -22,7 +22,7 @@ def main():
     # Logo
     st.title("Molugayou")
     st.image("Molugayou_logo.jpg", use_container_width=True)
-    st.write("Interact with the GPT-4o model deployed on Azure OpenAI.")
+    st.write("Interact with the GPT-4o model deployed on Azure OpenAI.. in future versions!!! For now, generate a new query for a GPT 35 Turbo model!")
 
     # Description Tab
     st.subheader("Description")
